@@ -13,6 +13,11 @@
 	define = function() {
 
 	};
+	
+	// 遵循AMD规范，且支持jQuery框架。
+	define.amd = {
+		jQuery : true
+	};
 
 	require = function() {
 
