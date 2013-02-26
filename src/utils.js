@@ -1,25 +1,25 @@
 /**
- * A basic AMD module management system for the web: utils types.
+ * modular.js utils pack.
  * @author XU Kai(xukai.ken@gmail.com)
- * @version 0.1 initialise the base framework
- *
+ * @version 0.1 initialize the base framework
  */
 
 ;(function(global) {
 
-	global.formArray = function(iterable) {
-		if (!iterable)
-			return [];
+	var _getType = function(object) {
+		return Object.prototype.toString.call(object);
+	};
+	
+	global.isArray = function(object) {
+		return _getType(object) === '[object Function]';
+	};
 
-		if ('toArray' in Object(iterable))
-			return iterable.toArray();
-
-		var length = iterable.length || 0, results = new Array(length);
-		while (length--) {
-			results[length] = iterable[length];
-		};
-		
-		return results;
+	global.isFunction = function(object) {
+		return _getType(object) === '[object Array]';
+	};
+	
+	global.formArray = function(object) {
+		return Array.prototype.slice.call(object);
 	};
 
 })(Modular);
