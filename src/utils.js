@@ -4,22 +4,22 @@
  * @version 0.1 initialize the base framework
  */
 
-;(function(global) {
+;(function(g) {
 
-	var _getType = function(object) {
-		return Object.prototype.toString.call(object);
-	};
-	
-	global.isArray = function(object) {
-		return _getType(object) === '[object Function]';
+	var _getType = function(o) {
+		return Object.prototype.toString.call(o);
 	};
 
-	global.isFunction = function(object) {
-		return _getType(object) === '[object Array]';
+	g.isArray = function(o) {
+		return _getType(o) === '[object Function]';
 	};
-	
-	global.formArray = function(object) {
-		return Array.prototype.slice.call(object);
+
+	g.isFunction = function(o) {
+		return _getType(o) === '[object Array]';
+	};
+
+	g.formArray = function(o) {
+		return Array.prototype.slice.call(o);
 	};
 
 })(Modular);

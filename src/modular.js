@@ -12,12 +12,11 @@
 	define = function() {
 		var options = Modular.formArray(arguments);
 		var _len = options.length;
-		if (_len == 1) {
-
-		} else if (_len == 2) {
+		if (_len) {
 			var tp = options[0], dependence;
-			if ((tp) == '[object Array]') {
-				dependence == tp
+
+			if (Modular.isArray(tp)) {
+				dependence = tp;
 			}
 		}
 	};
