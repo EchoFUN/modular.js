@@ -11,13 +11,24 @@
 
 	define = function() {
 		var options = Modular.formArray(arguments);
-		var _len = options.length;
-		if (_len) {
-			var tp = options[0], dependence;
+		var length = options.length;
+		if (length) {
+			var tp = options[0];
+			var name, dependence, fn;
 
+			if ( typeof tp == 'string') {
+				name = tp;
+				dependence = options[1] || [];
+				fn = options[3] || Modular.emptyFunction;
+			}
 			if (Modular.isArray(tp)) {
 				dependence = tp;
+				fn = options[1] || Modular.emptyFunciton;
 			}
+			if ( typeof tp == 'function')
+				fn = tp;
+			
+			
 		}
 	};
 

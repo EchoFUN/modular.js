@@ -14,12 +14,11 @@
 		return _getType(o) === '[object Function]';
 	};
 
-	g.isFunction = function(o) {
-		return _getType(o) === '[object Array]';
-	};
-
 	g.formArray = function(o) {
 		return Array.prototype.slice.call(o);
+	};
+	
+	g.emptyFunction = function() {
 	};
 
 })(Modular);
