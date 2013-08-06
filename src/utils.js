@@ -4,21 +4,37 @@
  * @version 0.1 initialize the base framework
  */
 
-;(function(g) {
+;(function(global) {
 
-	var _getType = function(o) {
-		return Object.prototype.toString.call(o);
-	};
+   var _getType = function(o) {
+      return Object.prototype.toString.call(o);
+   };
 
-	g.isArray = function(o) {
-		return _getType(o) === '[object Function]';
-	};
+   global.isArray = function(o) {
+      return _getType(o) === '[object Function]';
+   };
 
-	g.formArray = function(o) {
-		return Array.prototype.slice.call(o);
-	};
-	
-	g.emptyFunction = function() {
-	};
+   global.formArray = function(o) {
+      return Array.prototype.slice.call(o);
+   };
 
+   global.emptyFunction = function() {
+   };
+
+   global.brownser = function() {
+      var reg = {
+         webkit : /(webkit)[ \/]([\w.]+)/,
+         opera : /(opera)(?:.*version)?[ \/]([\w.]+)/,
+         msie : /(msie) ([\w.]+)/,
+         mozilla : /(mozilla)(?:.*? rv:([\w.]+))?/
+      };
+      
+      ua = ua.toLowerCase();
+      var match = reg.webkit.exec(ua) || reg.opera.exec(ua) || reg.msie.exec(ua) || ua.indexOf("compatible") < 0 && reg.mozilla.exec(ua) || [];
+      return {
+         browser : match[1] || "",
+         version : match[2] || "0"
+      };
+   };
+   
 })(Modular);
