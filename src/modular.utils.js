@@ -11,14 +11,15 @@
    };
 
    global.isArray = function(o) {
+      return _getType(o) === '[object Array]';
+   };
+   
+   global.isArray = function(o) {
       return _getType(o) === '[object Function]';
    };
 
-   global.formArray = function(o) {
+   global.getArray = function(o) {
       return Array.prototype.slice.call(o);
-   };
-
-   global.emptyFunction = function() {
    };
 
    global.brownser = function() {
@@ -37,4 +38,4 @@
       };
    };
    
-})(Modular);
+})(Modular.utils);
